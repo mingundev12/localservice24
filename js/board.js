@@ -51,3 +51,19 @@ async function renderList() {
 }
 
 renderList();
+
+document.querySelector("#categorySelect").addEventListener('change', (e) =>{
+    const selValue = e.target.value;
+    // console.log(selValue);
+    const articles = document.querySelectorAll("#boardList tr");
+
+    articles.forEach(article => {
+        let cate = article.querySelector(".cate").textContent;
+        // console.log(cate);
+        if(selValue === cate || selValue === "전체") {
+            article.classList.remove("hidden");
+        } else {
+            article.classList.add("hidden");
+        }
+    });
+});

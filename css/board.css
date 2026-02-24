@@ -132,3 +132,8 @@ th.date,  td.date{
 .detail-link:hover {
     text-decoration: underline;
 }
+
+/* 검색에 해당하지 않는 항목 감추기 */
+.hidden {
+    display: none;
+}
