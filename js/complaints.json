@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "category": "시설",
+    "title": "도로 파손 신고",
+    "status": "접수",
+    "manager": "홍길동",
+    "date": "2026-02-20"
+  },
+  {
+    "id": 2,
+    "category": "환경",
+    "title": "쓰레기 무단 투기",
+    "status": "처리중",
+    "manager": "김민수",
+    "date": "2026-02-21"
+  },
+  {
+    "id": 3,
+    "category": "교통",
+    "title": "신호등 고장 신고",
+    "status": "완료",
+    "manager": "이영희",
+    "date": "2026-02-22"
+  },
+  {
+    "id": 4,
+    "category": "시설",
+    "title": "가로등 점검 요청",
+    "status": "접수",
+    "manager": "박지훈",
+    "date": "2026-02-23"
+  },
+  {
+    "id": 5,
+    "category": "기타",
+    "title": "공원 소음 민원",
+    "status": "처리중",
+    "manager": "최수진",
+    "date": "2026-02-24"
+  }
+]

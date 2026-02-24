@@ -1,0 +1,133 @@
+/* 전체 영역 */
+.board-container {
+    width: 1100px;
+    margin: 60px auto;
+    font-family: "Pretendard", sans-serif;
+}
+
+/* 제목 */
+.board-title {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* 검색 영역 */
+.board-search-wrap {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.board-search-wrap select,
+.board-search-wrap input {
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.board-search-wrap input {
+    width: 250px;
+}
+
+.board-search-wrap button {
+    padding: 0 15px;
+    height: 38px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2c7be5;
+    color: #fff;
+    cursor: pointer;
+}
+
+.board-search-wrap button:hover {
+    background-color: #1a68d1;
+}
+
+/* 상태 필터 */
+.board-filter {
+    margin-bottom: 20px;
+}
+
+.status-btn {
+    padding: 6px 14px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.status-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 테이블 */
+.board-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    /* table-layout: fixed; */
+}
+
+/* 헤더 */
+.board-list thead {
+    background-color: #f8f9fa;
+}
+
+.board-list th {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* 본문 */
+.board-list td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    /* text-align: left; */
+}
+th.category, td.cate {
+    width: 15%;
+    text-align: center;
+}
+
+th.title, td.tit {
+    width: 35%;
+    text-align: left;
+}
+
+th.state, td.state {
+    width: 15%;
+    text-align: center;
+}
+
+th.manage {
+    width: 15%;
+    text-align: center;
+}
+
+th.date {
+    width: 20%;
+    text-align: center;
+}
+
+/* 마우스 오버 효과 */
+.board-list tbody tr:hover {
+    background-color: #f9fbff;
+}
+
+/* 제목 클릭 가능 표시 */
+.detail-link {
+    color: #2c7be5;
+    cursor: pointer;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
