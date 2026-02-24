@@ -17,11 +17,11 @@ function renderList(data) {
   data.forEach(item => {
     boardList.innerHTML += `
       <tr>
-        <td>${item.category}</td>
+        <td class="cate">${item.category}</td>
         <td class="detail-link">${item.title}</td>
-        <td>${item.status}</td>
-        <td>${item.manager}</td>
-        <td>${item.date}</td>
+        <td class="state">${item.status}</td>
+        <td class="manage">${item.manager}</td>
+        <td class="date">${item.date}</td>
       </tr>
     `;
   });

@@ -10,6 +10,7 @@
     margin-bottom: 30px;
     font-size: 28px;
     font-weight: 700;
+    padding: 10px;
 }
 
 /* 검색 영역 */
@@ -98,8 +99,8 @@ th.category, td.cate {
 }
 
 th.title, td.tit {
-    width: 35%;
-    text-align: left;
+    width: 40%;
+    text-align: center;
 }
 
 th.state, td.state {
@@ -107,12 +108,12 @@ th.state, td.state {
     text-align: center;
 }
 
-th.manage {
+th.manage, td.manage {
     width: 15%;
     text-align: center;
 }
 
-th.date {
+th.date,  td.date{
     width: 20%;
     text-align: center;
 }
