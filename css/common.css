@@ -84,12 +84,23 @@ ul {
     flex: 0 0 auto;
     min-width: 120px;
     text-align: center;
+    transition: all 0.2s;
+    border-radius: 7px;
 }
 
 .menuItem a {
     display: block;
     padding: 10px 0;
-    transition: all 0.2s;
+}
+
+.menuItem:hover {
+    background-color: #888;
+    color: #eee;
+}
+
+.menuItem.active {
+    color: #007bff;
+    font-weight: bold;
 }
 
 /* main */
@@ -137,11 +148,6 @@ ul {
 .color_footer {
     background-color: #eee;
     color: #fff;
-}
-
-.color_menu_hover {
-    background-color: #444;
-    color: #a4a4a4;
 }
 
 .color_text_777 {
