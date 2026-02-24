@@ -1,0 +1,199 @@
+body {
+    background-color: #f4f6f9;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 메인 중앙 정렬 */
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-top: 120px;
+    margin-top: -150px; /* transform 대신 위로 이동 */
+}
+
+#main h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#complaintForm {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form_group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form_group input,
+.form_group select,
+.form_group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.form_group input:focus,
+.form_group select:focus,
+.form_group textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74,144,226,0.3);
+}
+
+.btn_area {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn_area button[type="submit"] {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn_area button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+.btn_area button[type="reset"] {
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn_area button[type="reset"]:hover {
+    background-color: #999;
+    color: white;
+}
+
+
+/* 모달 */
+.modal {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal_content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    position: relative;
+}
+
+#modalClose {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+}
+
+#modalClose:hover {
+    background-color: #357abd;
+}
+
+.header_bgr {
+    background-color: #eee;
+}
+
+.color_text_777 {
+    color: #777;
+}
+
+/* 로고 + 텍스트 묶음 */
+.brandWrap {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 로고 */
+.logo {
+    border-radius: 8px;
+}
+
+/* 타이틀 */
+.titleWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #777;
+}
+
+.header_inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* ← 왼쪽 묶음 / 오른쪽 메뉴 분리 */
+    padding: 0 20px;
+}
+
+.brandWrap {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 메뉴 오른쪽 정렬 */
+.menuWrap {
+    margin-left: auto; /* brandWrap 뒤로 밀고 오른쪽 끝으로 배치 */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
