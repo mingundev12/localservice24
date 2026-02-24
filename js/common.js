@@ -1,10 +1,10 @@
-// 특정 url에 있는 내용을 selector(타겟) 에 집어넣는 함수
-async function includeFile(selector, url, isAppend = false) {
+// 특정 url에 있는 내용을 object(타겟) 에 집어넣는 함수
+async function includeFile(object, url, isAppend = false) {
     const response = await loadFile(url);
 
     if (response) {
         const html = await response.text();
-        includeHTML(selector, html, isAppend);
+        includeHTML(object, html, isAppend);
     }
 }
 
@@ -20,15 +20,14 @@ async function loadFile(url) {
     }
 }
 
-// 타겟에 html요소를 추가하는 함수
-function includeHTML(selector, html, isAppend = false) {
-    const target = document.querySelector(selector);
+// object에 html요소를 추가하는 함수
+function includeHTML(object, html, isAppend = false) {
 
-    if(target) {
+    if(object) {
         if(isAppend) {
-            target.innerHTML += html;
+            object.innerHTML += html;
         } else {
-            target.innerHTML = html;
+            object.innerHTML = html;
         }
     }
 }
@@ -46,10 +45,14 @@ async function getJson(url) {
 }
 
 // 특정 요소에 클래스를 부여하는 함수
-function addClass(selector, className) {
-    const targets = document.querySelectorAll(selector);
+function addClass(object, className) {
+    if(!object) return;
 
-    targets.forEach(element => {
+    const elements = 
+        (object instanceof NodeList || Array.isArray(object)) ?
+            object : [object];
+    
+    elements.forEach(element => {
         if(element) {
             element.classList.add(className);
         }
@@ -57,10 +60,14 @@ function addClass(selector, className) {
 }
 
 // 특정 요소에 클래스를 제거하는 함수
-function removeClass(selector, className) {
-    const targets = document.querySelectorAll(selector);
+function removeClass(object, className) {
+    if(!object) return;
 
-    targets.forEach(element => {
+    const elements = 
+        (object instanceof NodeList || Array.isArray(object)) ?
+            object : [object];
+    
+    elements.forEach(element => {
         if(element) {
             element.classList.remove(className);
         }
@@ -70,16 +77,19 @@ function removeClass(selector, className) {
 // header 와 footer 불러오기, 아이콘 교체
 async function initLayout() {
     // header 불러오기
-    await includeFile('#header', './header.html');
-    addClass('#header', 'color_header');
-
+    const header = document.querySelector('#header');
+    await includeFile(header, './header.html');
+    addClass(header, 'color_header');
+    
     // footer 불러오기
-    await includeFile('#footer', './footer.html');
-    addClass('#footer', 'color_footer');
+    const footer = document.querySelector('#footer');
+    await includeFile(footer, './footer.html');
+    addClass(footer, 'color_footer');
 
     // favicon 불러오기
+    const head = document.querySelector('head');
     const icon = `<link rel="icon" type="image/png" href="./img/logo_small.png">`;
-    includeHTML('head', icon, true);
+    includeHTML(head, icon, true);
 }
 
 initLayout();
@@ -88,3 +98,12 @@ const categoryUrl = "./js/category.json";
 const boardUrl = "./js/complaints.json";
 
 // 메뉴 hover 효과
+const menus = document.querySelectorAll(".menuItem");
+menus.forEach(menu => {
+    menu.addEventListener('mouseenter', (e) => {
+        addClass(e.target, 'color_menu_hover');
+    });
+    menu.addEventListener('mouseout', (e) => {
+        removeClass(e.target, 'color_menu_hover');
+    });
+});
