@@ -93,11 +93,12 @@ searchBtn.addEventListener('click', () =>{
         let status = article.querySelector(".status").textContent;
 
         let condition1 = title.includes(keyword) && (category === cate || category === "전체");
-        let condition2 = true;
+        let condition2 = false;
 
         statusBtn.forEach(button => {
-            if(status != button.textContent && button.classList.contains("active")
-             && button.textContent != "전체") condition2 = false;
+          console.log(button);
+          if(button.classList.contains("active") &&
+              (status === button.textContent || button.textContent === "전체")) condition2 = true;
         });
         
         if(condition1 && condition2){
@@ -108,7 +109,7 @@ searchBtn.addEventListener('click', () =>{
     });
 });
 
-// let selstatus = new Set();     // 중복 방지
+let selstatus = new Set();     // 중복 방지
 
 statusBtn.forEach(button => {
     button.addEventListener('click', () => { 
