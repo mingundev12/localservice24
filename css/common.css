@@ -78,15 +78,51 @@ ul {
     padding: 10px 0;
 }
 
+/* footer */
+#footer {
+    padding: 40px 20px;
+}
 
+.footerBox {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-info p {
+    font-size: 0.85rem;
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+}
 
 
 /* 색상 설정 클래스 */
 
-.header_bgr {
+.color_header {
     background-color: #eee;
+}
+
+.color_footer {
+    background-color: #1a1a1a;
+    color: #fff;
 }
 
 .color_text_777 {
     color: #777;
+}
+
+.color_text_ccc {
+    color: #ccc;
 }
