@@ -26,8 +26,8 @@
 
                     <!-- 제목 -->
                     <div class="form_group">
-                        <label for="title">제목 *</label>
-                        <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
+                        <label for="title">제목 * <span id="titleCount">0</span>/500</label>
+                        <input type="text" id="title" name="title" maxlength="500" placeholder="제목을 입력하세요" required>
                     </div>
 
                     <!-- 분류 -->
@@ -46,7 +46,8 @@
                     <!-- 내용 -->
                     <div class="form_group">
                         <label for="content">내용 *</label>
-                        <textarea id="content" name="content" rows="6" placeholder="민원 내용을 입력하세요" required></textarea>
+                        <textarea id="content" name="content" rows="8" placeholder="민원 내용을 입력하세요" required maxlength="50000"></textarea>
+                        <div class="char_count" id="charCount">0 / 50000</div>
                     </div>
 
                     <!-- 버튼 영역 -->
