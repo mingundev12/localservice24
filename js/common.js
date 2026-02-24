@@ -15,4 +15,18 @@ async function includeHTML(url, selector) {
     }
 }
 
+// 특정 요소에 클래스를 부여하는 함수
+function setClass(selector, className) {
+    const targets = document.querySelectorAll(selector);
+
+    targets.forEach(element => {
+        if(element) {
+            element.classList.add(className);
+        }
+    });
+}
+
 includeHTML('./header.html', '#header');
+includeHTML('./footer.html', '#footer');
+setClass('#header', 'color_header')
+setClass('#footer', 'color_footer')
