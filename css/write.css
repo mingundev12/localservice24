@@ -1,7 +1,4 @@
-body {
-    background-color: #f4f6f9;
-    font-family: "Noto Sans KR", sans-serif;
-}
+
 
 /* 메인 중앙 정렬 */
 #main {
@@ -10,38 +7,48 @@ body {
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
-    padding-top: 120px;
     margin-top: -150px; /* transform 대신 위로 이동 */
 }
 
-#main h2 {
+/* 폼과 제목 래퍼 */
+.form_wrapper {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* 제목 */
+.form_wrapper h2 {
+    text-align: center;
     margin-bottom: 30px;
     font-size: 28px;
     font-weight: 700;
-    text-align: center;
+    color: #333;
 }
 
+/* 카드 형태 */
 #complaintForm {
     width: 100%;
-    max-width: 600px;
-    background: #fff;
+    background: #ffffff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* 입력 그룹 */
 .form_group {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
+/* 라벨 */
 .form_group label {
     margin-bottom: 8px;
     font-weight: 600;
     color: #444;
 }
 
+/* input, select, textarea 공통 */
 .form_group input,
 .form_group select,
 .form_group textarea {
@@ -52,23 +59,27 @@ body {
     transition: 0.3s;
 }
 
+/* 포커스 효과 */
 .form_group input:focus,
 .form_group select:focus,
 .form_group textarea:focus {
     border-color: #4a90e2;
     outline: none;
-    box-shadow: 0 0 5px rgba(74,144,226,0.3);
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
 }
 
+/* 버튼 영역 */
 .btn_area {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    margin-top: 10px;
 }
 
+/* 등록 버튼 */
 .btn_area button[type="submit"] {
     background-color: #4a90e2;
-    color: #fff;
+    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -80,9 +91,9 @@ body {
     background-color: #357abd;
 }
 
+/* 취소 버튼 */
 .btn_area button[type="reset"] {
     background-color: #ccc;
-    color: #000;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -135,3 +146,8 @@ body {
 .header_bgr {
     background-color: #eee;
 }
+
+.color_text_777 {
+    color: #777;
+}
+
