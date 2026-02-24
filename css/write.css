@@ -1,93 +1,118 @@
-/* write.css 에 추가하거나 기존 form_wrapper 스타일 overwrite */
-
+/* 배경을 흰색으로 */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #ffffff; /* 기존 f7f8fa -> 하얀색 */
+    }
 
+/* wrap 그대로 */
 #wrap {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #f7f8fa;
-}
+    }
 
+/* 메인 폼 위치 조정 */
 #main {
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+    justify-content: left;
+    /* 세로 정렬: top으로 이동 */
+    align-items: flex-start; 
+    padding: 10px 20px 20px 20px; /* 위쪽 여백 넉넉히 */
+    }
 
+/* form_wrapper 박스 제거 그대로 */
 .form_wrapper {
     width: 100%;
-    max-width: 700px;
-    /* 박스 스타일 제거 */
-    background-color: transparent; /* 배경 없앰 */
-    border-radius: 0; /* 둥근 모서리 없앰 */
-    box-shadow: none; /* 그림자 없앰 */
-    padding: 0; /* 패딩 없앰 */
-}
+    max-width: 1190px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    }  
 
+    /* 민원 등록 글씨 크게 */
 h2 {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: left;
+    margin-bottom: 45px;
     color: #333;
-}
+    font-size: 32px; /* 기존보다 크게 */
+    font-weight: bold; /* 강조 */
+    padding-left: 0px;
+    }
 
-.form_group {
-    margin-bottom: 20px;
-}
+    .form_group {
+        margin-bottom: 40px;
 
-label {
+    }
+
+    /* 모든 라벨 통일 */
+    label {
     display: block;
-    margin-bottom: 6px;
+    font-size: 25px;      /* 글자 크기 통일 */
     font-weight: 600;
     color: #555;
-}
+    margin-bottom: 25px;  /* 라벨과 입력창 사이 간격 통일 */
+    }
 
-input[type="text"], select, textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
-    box-sizing: border-box;
-}
+    input[type="text"], select, textarea {
+        width: 100%;
+        padding: 40px 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+        box-sizing: border-box;
+        
+    }
 
-textarea {
-    resize: vertical;
-}
+    textarea {
+        resize: vertical;
+    }
 
-.btn_area {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
+    .btn_area {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
 
-button {
-    padding: 10px 25px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+    button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-button[type="reset"] {
-    background-color: #6c757d;
-}
+    button[type="reset"] {
+        background-color: #6c757d;
+    }
 
-button:hover {
-    opacity: 0.9;
-}
+    button:hover {
+        opacity: 0.9;
+    }
 
-.error_box {
-    color: #d9534f;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
+    .error_box {
+        color: #d9534f;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .char_count {
+        text-align: right;
+        font-size: 13px;
+        color: #666;
+        margin-top: 4px;
+    }
+
+    footer {
+        text-align:center; 
+        margin-top:20px; 
+        font-size:14px; 
+        color:#999;
+        padding-bottom: 10px;
+    }
