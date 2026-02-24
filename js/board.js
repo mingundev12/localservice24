@@ -67,3 +67,18 @@ document.querySelector("#categorySelect").addEventListener('change', (e) =>{
         }
     });
 });
+
+document.querySelector("#searchBtn").addEventListener('click', () =>{
+    const keyword = document.querySelector("#keywordInput").value;
+    const articles = document.querySelectorAll("#boardList tr");
+
+    articles.forEach(article => {
+        let title = article.querySelector(".tit").textContent;
+        
+        if(title.includes(keyword)){
+            article.classList.remove("hidden");
+        } else {
+            article.classList.add("hidden");
+        }
+    });
+});
