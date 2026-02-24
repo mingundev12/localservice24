@@ -54,6 +54,8 @@ ul {
 .titleWrap {
     flex: 3;
     text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .titleWrap p {

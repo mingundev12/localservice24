@@ -51,8 +51,8 @@ async function renderList() {
           <td class="cate">${item.category}</td>
           <td class="tit">${item.title}</td>
           <td class="status">${item.status}</td>
-          <td>${item.manager}</td>
-          <td>${item.date}</td>
+          <td class="manage">${item.manager}</td>
+          <td class="date">${item.date}</td>
         </tr>
       `;
     });
@@ -65,6 +65,7 @@ renderList();
 const statusBtn = document.querySelectorAll(".status-btn");
 const rows = document.querySelectorAll("#boardList tr");
 const searchBtn = document.querySelector("#searchBtn");
+const allButton = document.querySelector(".status-btn");
 
 // document.querySelector("#categorySelect").addEventListener('change', (e) =>{
 //     const selValue = e.target.value;
@@ -82,6 +83,7 @@ const searchBtn = document.querySelector("#searchBtn");
 //     });
 // });
 
+// 검색기능 + 필터링 활성화
 searchBtn.addEventListener('click', () =>{
     const keyword = document.querySelector("#keywordInput").value;
     const articles = document.querySelectorAll("#boardList tr");
@@ -96,7 +98,7 @@ searchBtn.addEventListener('click', () =>{
         let condition2 = false;
 
         statusBtn.forEach(button => {
-          console.log(button);
+        //   console.log(button);
           if(button.classList.contains("active") &&
               (status === button.textContent || button.textContent === "전체")) condition2 = true;
         });
@@ -130,8 +132,24 @@ statusBtn.forEach(button => {
         }
         
         filterRows();
+        checkBtn();
     });
 });
+
+// 상태버튼 - 전체를 제외한 모든 버튼 선택시 전체 버튼으로 전환
+function checkBtn() {
+    let count = 0;
+
+    statusBtn.forEach(button =>{
+        if(button.classList.contains("active")) {
+            count++;
+        }
+    });
+    if(count === 0 || count === 3) {
+        allButton.click();
+
+    }
+}
 
 function resetButtons() {
     statusBtn.forEach(button => {
@@ -140,7 +158,6 @@ function resetButtons() {
 }
 
 function resetAllButton() {
-    const allButton = document.querySelector(".status-btn");
     allButton.classList.remove("active");
 }
 
@@ -148,8 +165,8 @@ searchBtn.addEventListener('click', () => {
     filterRows();
 })
 
-function filterRows() {
-    
+// 상태 필터 함수
+function filterRows() {    
     rows.forEach(row => {
         const rowStatus = row.querySelector(".status").textContent;
 
@@ -164,5 +181,6 @@ function filterRows() {
             row.classList.add("hidden");
         }
     });
-
 }
+
+checkBtn();

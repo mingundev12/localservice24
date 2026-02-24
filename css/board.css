@@ -6,11 +6,12 @@
 }
 
 /* 제목 */
-.board-title {
+.board_title {
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     padding: 10px;
+    white-space: nowrap;
 }
 
 /* 검색 영역 */
@@ -66,17 +67,22 @@
     background-color: #e0e0e0;
 }
 
+.board-filter{
+    white-space: nowrap;
+}
+
 /* 테이블 */
 .board-list table {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
     /* table-layout: fixed; */
+    white-space: nowrap;
 }
 
 /* 헤더 */
 .board-list thead {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa;    
 }
 
 .board-list th {
