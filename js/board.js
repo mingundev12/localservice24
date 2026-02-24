@@ -27,6 +27,7 @@
 //   });
 // }
 
+// 게시글 목록 불러오는 함수
 async function renderList() {
   const listUrl = "./js/complaints.json";
   const response = await loadFile(listUrl);
