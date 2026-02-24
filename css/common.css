@@ -29,6 +29,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .logoWrap {
@@ -89,9 +90,15 @@ ul {
     transition: all 0.2s;
 }
 
+/* main */
+#main {
+    min-height: calc(100vh - 344px);
+}
+
 /* footer */
 #footer {
     padding: 40px 20px;
+    margin-top: 20px;
 }
 
 .footerBox {
