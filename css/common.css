@@ -130,6 +130,11 @@ ul {
     color: #fff;
 }
 
+.color_menu_hover {
+    background-color: #444;
+    color: #a4a4a4;
+}
+
 .color_text_777 {
     color: #777;
 }

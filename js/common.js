@@ -16,7 +16,7 @@ async function includeHTML(url, selector) {
 }
 
 // 특정 요소에 클래스를 부여하는 함수
-function setClass(selector, className) {
+function addClass(selector, className) {
     const targets = document.querySelectorAll(selector);
 
     targets.forEach(element => {
@@ -26,7 +26,21 @@ function setClass(selector, className) {
     });
 }
 
+// 특정 요소에 클래스를 제거하는 함수
+function removeClass(selector, className) {
+    const targets = document.querySelectorAll(selector);
+
+    targets.forEach(element => {
+        if(element) {
+            element.classList.remove(className);
+        }
+    });
+}
+
+// header 와 footer 불러오기
 includeHTML('./header.html', '#header');
 includeHTML('./footer.html', '#footer');
-setClass('#header', 'color_header')
-setClass('#footer', 'color_footer')
+addClass('#header', 'color_header')
+addClass('#footer', 'color_footer')
+
+// 메뉴 hover 효과
