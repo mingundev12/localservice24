@@ -1,22 +1,35 @@
 // 특정 url에 있는 내용을 selector(타겟) 에 집어넣는 함수
-async function includeFile(url, selector) {
+async function includeFile(selector, url, isAppend = false) {
+    const response = await loadFile(url);
+
+    if (response) {
+        const html = await response.text();
+        includeHTML(selector, html, isAppend);
+    }
+}
+
+// 특정 url에 있는 File 을 반환하는 함수
+async function loadFile(url) {
     try {
         const response = await fetch(url);
         if(!response.ok) throw new Error('파일 불러오기 실패');
-
-        const html = await response.text();
-        includeHTML(html, selector);
+        return response;
     } catch (error) {
         console.error('HTML 로드 중 오류 발생 : ', error);
+        return null;
     }
 }
 
 // 타겟에 html요소를 추가하는 함수
-function includeHTML(html, selector) {
+function includeHTML(selector, html, isAppend = false) {
     const target = document.querySelector(selector);
 
     if(target) {
-        target.innerHTML += html;
+        if(isAppend) {
+            target.innerHTML += html;
+        } else {
+            target.innerHTML = html;
+        }
     }
 }
 
@@ -45,16 +58,16 @@ function removeClass(selector, className) {
 // header 와 footer 불러오기, 아이콘 교체
 async function initLayout() {
     // header 불러오기
-    await includeFile('./header.html', '#header');
+    await includeFile('#header', './header.html');
     addClass('#header', 'color_header');
 
     // footer 불러오기
-    await includeFile('./footer.html', '#footer');
+    await includeFile('#footer', './footer.html');
     addClass('#footer', 'color_footer');
 
     // favicon 불러오기
     const icon = `<link rel="icon" type="image/png" href="./img/logo_small.png">`;
-    includeHTML(icon, 'head');
+    includeHTML('head', icon, true);
 }
 
 initLayout();
