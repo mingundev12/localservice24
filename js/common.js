@@ -55,7 +55,8 @@ async function initLayout() {
     // favicon 불러오기
     const icon = `<link rel="icon" type="image/png" href="./img/logo_small.png">`;
     includeHTML(icon, 'head');
-
 }
+
+initLayout();
 
 // 메뉴 hover 효과
