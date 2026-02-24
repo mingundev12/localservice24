@@ -1,63 +1,39 @@
-// const boardList = document.getElementById("boardList");
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   fetch("./js/complaints.json")
-//     .then(response => response.json())
-//     .then(data => {
-//       renderList(data);
-//     })
-//     .catch(error => {
-//       console.error("데이터 불러오기 실패:", error);
-//     });
-// });
-
-// function renderList(data) {
-//   boardList.innerHTML = "";
-
-//   data.forEach(item => {
-//     boardList.innerHTML += `
-//       <tr>
-//         <td>${item.category}</td>
-//         <td class="detail-link">${item.title}</td>
-//         <td>${item.status}</td>
-//         <td>${item.manager}</td>
-//         <td>${item.date}</td>
-//       </tr>
-//     `;
-//   });
-// }
 
 // 게시글 목록 불러오는 함수
 async function renderList() {
-  const boards = await getJson(boardUrl);
-  const staffs = await getJson(staffUrl);
-  const categories = await getJson(categoryUrl);
-  if(boards && staffs && categories) {
-    const list = boards.map(board => {
-      const staff = staffs.find(staff => staff.id === board.staff_id);
-      const category = categories.find(category => category.id === board.category_id);
+    const boards = await getJson(boardUrl);
+    const staffs = await getJson(staffUrl);
+    const categories = await getJson(categoryUrl);
+    const boardList = document.querySelector('#boardList');
 
-      return {
-        ...board,
-        manager : staff ? staff.name : '미배정',
-        category : category ? category.category_name : '기타'
-      };
+    if(boards && staffs && categories) {
+        const list = boards.map(board => {
+        const staff = staffs.find(staff => staff.id === board.staff_id);
+        const category = categories.find(category => category.id === board.category_id);
+
+        return {
+            ...board,
+            manager : staff ? staff.name : '미배정',
+            category : category ? category.category_name : '기타'
+        };
     });
 
     let html = "";
     list.forEach(item => {
-      html += `
-        <tr>
-          <td class="cate">${item.category}</td>
-          <td class="tit">${item.title}</td>
-          <td class="status">${item.status}</td>
-          <td class="manage">${item.manager}</td>
-          <td class="date">${item.date}</td>
-        </tr>
-      `;
+        html += `
+            <tr>
+                <td class="cate">${item.category}</td>
+                <td class="tit">${item.title}</td>
+                <td class="status">${item.status}</td>
+                <td class="manage">${item.manager}</td>
+                <td class="date">${item.date}</td>
+            </tr>
+        `;
     });
-    includeHTML('#boardList', html);
-  }
+
+    includeHTML(boardList, html);
+    }
 }
 
 renderList();
@@ -67,21 +43,6 @@ const rows = document.querySelectorAll("#boardList tr");
 const searchBtn = document.querySelector("#searchBtn");
 const allButton = document.querySelector(".status-btn");
 
-// document.querySelector("#categorySelect").addEventListener('change', (e) =>{
-//     const selValue = e.target.value;
-//     // console.log(selValue);
-//     const articles = document.querySelectorAll("#boardList tr");
-
-//     articles.forEach(article => {
-//         let cate = article.querySelector(".cate").textContent;
-//         // console.log(cate);
-//         if(selValue === cate || selValue === "전체") {
-//             article.classList.remove("hidden");
-//         } else {
-//             article.classList.add("hidden");
-//         }
-//     });
-// });
 
 // 검색기능 + 필터링 활성화
 searchBtn.addEventListener('click', () =>{
