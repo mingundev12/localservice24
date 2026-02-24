@@ -1,10 +1,9 @@
-// write.js
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("complaintForm");
 
-    // 제목 입력 관련
+    // 제목
     const titleInput = document.getElementById("title");
-    const titleCharCount = document.getElementById("charCount"); // 제목 글자수 표시
+    const titleCharCount = document.getElementById("titleCount"); // 수정된 id
     const titleMax = 500;
 
     titleInput.addEventListener("input", function () {
@@ -14,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
         titleCharCount.textContent = `${titleInput.value.length} / ${titleMax}`;
     });
 
-    // 내용 입력 관련
+    // 내용
     const contentInput = document.getElementById("content");
-    const contentCharCount = document.querySelectorAll("#charCount")[1]; // 두 번째 charCount
+    const contentCharCount = document.getElementById("contentCount"); // 수정된 id
     const contentMax = 50000;
 
     contentInput.addEventListener("input", function () {
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         contentCharCount.textContent = `${contentInput.value.length} / ${contentMax}`;
     });
 
-    // 폼 제출
+    // 제출
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -39,23 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // 글자수 체크
-        if (title.length > titleMax) {
-            alert(`제목은 최대 ${titleMax}자까지 입력 가능합니다.`);
-            return;
-        }
-        if (content.length > contentMax) {
-            alert(`내용은 최대 ${contentMax}자까지 입력 가능합니다.`);
-            return;
-        }
-
         alert("등록이 완료되었습니다.");
         form.reset();
         titleCharCount.textContent = `0 / ${titleMax}`;
         contentCharCount.textContent = `0 / ${contentMax}`;
     });
 
-    // 취소 버튼
+    // 취소
     const resetBtn = form.querySelector('button[type="reset"]');
     resetBtn.addEventListener("click", function (e) {
         e.preventDefault();
