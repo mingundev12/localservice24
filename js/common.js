@@ -80,6 +80,8 @@ async function initLayout() {
     const header = document.querySelector('#header');
     await includeFile(header, './header.html');
     addClass(header, 'color_header');
+
+    highlightCurrentMenu();
     
     // footer 불러오기
     const footer = document.querySelector('#footer');
@@ -97,13 +99,17 @@ const staffUrl = "./js/staff.json";
 const categoryUrl = "./js/category.json";
 const boardUrl = "./js/complaints.json";
 
-// 메뉴 hover 효과
-const menus = document.querySelectorAll(".menuItem");
-menus.forEach(menu => {
-    menu.addEventListener('mouseenter', (e) => {
-        addClass(e.target, 'color_menu_hover');
+// 현재 페이지 하이라이트 처리
+function highlightCurrentMenu() {
+    const currentPage = window.location.pathname.split('/').pop();
+
+    const menus = document.querySelectorAll(".menuItem");
+
+    menus.forEach(menu => {
+        const menuLink = menu.querySelector('a').getAttribute('href');
+
+        if(menuLink && menuLink.includes(currentPage)) {
+            addClass(menu, 'active');
+        }
     });
-    menu.addEventListener('mouseout', (e) => {
-        removeClass(e.target, 'color_menu_hover');
-    });
-});
+}
