@@ -1,153 +1,93 @@
+/* write.css 에 추가하거나 기존 form_wrapper 스타일 overwrite */
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-/* 메인 중앙 정렬 */
+#wrap {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f8fa;
+}
+
 #main {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    margin-top: -150px; /* transform 대신 위로 이동 */
+    padding: 20px;
 }
 
-/* 폼과 제목 래퍼 */
 .form_wrapper {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
+    /* 박스 스타일 제거 */
+    background-color: transparent; /* 배경 없앰 */
+    border-radius: 0; /* 둥근 모서리 없앰 */
+    box-shadow: none; /* 그림자 없앰 */
+    padding: 0; /* 패딩 없앰 */
 }
 
-/* 제목 */
-.form_wrapper h2 {
+h2 {
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
-    font-weight: 700;
+    margin-bottom: 20px;
     color: #333;
 }
 
-/* 카드 형태 */
-#complaintForm {
-    width: 100%;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* 입력 그룹 */
 .form_group {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 20px;
 }
 
-/* 라벨 */
-.form_group label {
-    margin-bottom: 8px;
+label {
+    display: block;
+    margin-bottom: 6px;
     font-weight: 600;
-    color: #444;
+    color: #555;
 }
 
-/* input, select, textarea 공통 */
-.form_group input,
-.form_group select,
-.form_group textarea {
-    padding: 12px;
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 10px 12px;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: 0.3s;
+    border-radius: 5px;
+    font-size: 15px;
+    box-sizing: border-box;
 }
 
-/* 포커스 효과 */
-.form_group input:focus,
-.form_group select:focus,
-.form_group textarea:focus {
-    border-color: #4a90e2;
-    outline: none;
-    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+textarea {
+    resize: vertical;
 }
 
-/* 버튼 영역 */
 .btn_area {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* 등록 버튼 */
-.btn_area button[type="submit"] {
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn_area button[type="submit"]:hover {
-    background-color: #357abd;
-}
-
-/* 취소 버튼 */
-.btn_area button[type="reset"] {
-    background-color: #ccc;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn_area button[type="reset"]:hover {
-    background-color: #999;
-    color: white;
-}
-
-
-/* 모달 */
-.modal {
-    display: none;
-    position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.5);
     justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    gap: 15px;
 }
 
-.modal_content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 400px;
-    width: 80%;
-    position: relative;
-}
-
-#modalClose {
-    margin-top: 20px;
-    padding: 10px 20px;
+button {
+    padding: 10px 25px;
     border: none;
-    border-radius: 8px;
-    background-color: #4a90e2;
+    border-radius: 5px;
+    background-color: #007bff;
     color: white;
+    font-size: 15px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-#modalClose:hover {
-    background-color: #357abd;
+button[type="reset"] {
+    background-color: #6c757d;
 }
 
-.header_bgr {
-    background-color: #eee;
+button:hover {
+    opacity: 0.9;
 }
 
-.color_text_777 {
-    color: #777;
+.error_box {
+    color: #d9534f;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
-
