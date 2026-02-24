@@ -33,6 +33,18 @@ function includeHTML(selector, html, isAppend = false) {
     }
 }
 
+// json 객체 배열을 반환하는 함수
+async function getJson(url) {
+    const response = await loadFile(url);
+
+    if(response) {
+        const json = await response.json();
+        return json;
+    } else {
+        return null;
+    }
+}
+
 // 특정 요소에 클래스를 부여하는 함수
 function addClass(selector, className) {
     const targets = document.querySelectorAll(selector);

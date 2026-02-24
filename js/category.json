@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "category_name": "시설"
+  },
+  {
+    "id": 2,
+    "category_name": "교통"
+  },
+  {
+    "id": 3,
+    "category_name": "환경"
+  },
+  {
+    "id": 4,
+    "category_name": "기타"
+  }
+]
