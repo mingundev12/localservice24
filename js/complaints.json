@@ -1,42 +1,47 @@
 [
   {
     "id": 1,
-    "category": "시설",
+    "category_id": 1,
     "title": "도로 파손 신고",
+    "content": "사거리 횡단보도 앞 보도블록이 깨져 있어 통행이 위험합니다. 빠른 복구 부탁드립니다.",
     "status": "접수",
-    "manager": "박지훈",
+    "staff_id": 1,
     "date": "2026-02-20"
   },
   {
     "id": 2,
-    "category": "환경",
+    "category_id": 3,
     "title": "쓰레기 무단 투기",
+    "content": "공원 뒤편 주차장에 대형 폐기물과 쓰레기 봉투가 쌓여 있어 악취가 심합니다.",
     "status": "처리중",
-    "manager": "김민수",
+    "staff_id": 4,
     "date": "2026-02-21"
   },
   {
     "id": 3,
-    "category": "교통",
+    "category_id": 2,
     "title": "신호등 고장 신고",
+    "content": "초등학교 앞 신호등의 초록불이 들어오지 않아 아이들이 건너기에 매우 위험합니다.",
     "status": "완료",
-    "manager": "이영희",
+    "staff_id": 2,
     "date": "2026-02-22"
   },
   {
     "id": 4,
-    "category": "시설",
+    "category_id": 1,
     "title": "가로등 점검 요청",
+    "content": "골목길 가로등 2개가 밤마다 깜빡거리며 소음이 발생합니다. 야간 방범을 위해 점검해 주세요.",
     "status": "접수",
-    "manager": "박지훈",
+    "staff_id": 3,
     "date": "2026-02-23"
   },
   {
     "id": 5,
-    "category": "기타",
+    "category_id": 4,
     "title": "공원 소음 민원",
+    "content": "심야 시간에 공원에서 확성기를 사용하는 무리가 있어 주민들의 수면을 방해하고 있습니다.",
     "status": "처리중",
-    "manager": "최수진",
+    "staff_id": 5,
     "date": "2026-02-24"
   }
 ]

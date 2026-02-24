@@ -1,8 +1,6 @@
 
 async function renderStaff() {
-    const staffUrl = "./js/staff.json";
     const staffs = await getJson(staffUrl);
-    const categoryUrl = "./js/category.json";
     const categories = await getJson(categoryUrl);
     
     if(!staffs || !categories) return;

@@ -29,10 +29,20 @@
 
 // 게시글 목록 불러오는 함수
 async function renderList() {
-  const listUrl = "./js/complaints.json";
-  const response = await loadFile(listUrl);
-  if(response) {
-    const list = await response.json();
+  const boards = await getJson(boardUrl);
+  const staffs = await getJson(staffUrl);
+  const categories = await getJson(categoryUrl);
+  if(boards && staffs && categories) {
+    const list = boards.map(board => {
+      const staff = staffs.find(staff => staff.id === board.staff_id);
+      const category = categories.find(category => category.id === board.category_id);
+
+      return {
+        ...board,
+        manager : staff ? staff.name : '미배정',
+        category : category ? category.category_name : '기타'
+      };
+    });
 
     let html = "";
     list.forEach(item => {

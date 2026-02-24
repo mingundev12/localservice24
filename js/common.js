@@ -83,5 +83,8 @@ async function initLayout() {
 }
 
 initLayout();
+const staffUrl = "./js/staff.json";
+const categoryUrl = "./js/category.json";
+const boardUrl = "./js/complaints.json";
 
 // 메뉴 hover 효과
