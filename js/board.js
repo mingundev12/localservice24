@@ -15,14 +15,15 @@ function renderList() {
                 category : category ? category.category_name : '기타'
             };
         });
-        // console.log(list);
 
         let html = "";
         list.forEach(item => {
             html += `
                 <tr>
                     <td class="cate">${item.category}</td>
-                    <td class="tit">${item.title}</td>
+                    <td class="tit">
+                        <a href="./detail.html"> ${item.title}</a>
+                    </td>
                     <td class="status">${item.status}</td>
                     <td class="manage">${item.manager}</td>
                     <td class="date">${item.date}</td>
@@ -30,7 +31,7 @@ function renderList() {
             `;
         });
 
-        console.log(html);
+      
 
         includeHTML(boardList, html);
     }
