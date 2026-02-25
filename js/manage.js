@@ -1,5 +1,5 @@
 
-async function renderStaff() {
+function renderList() {
     
     if(!staffs || !categories) return;
 
@@ -25,5 +25,3 @@ async function renderStaff() {
 
     includeHTML('.staff-table-body', html);
 }
-
-renderStaff();
