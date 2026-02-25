@@ -1,7 +1,5 @@
 
 async function renderStaff() {
-    const staffs = await getJson(staffUrl);
-    const categories = await getJson(categoryUrl);
     
     if(!staffs || !categories) return;
 
