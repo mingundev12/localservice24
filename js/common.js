@@ -98,6 +98,11 @@ initLayout();
 const staffUrl = "./js/staff.json";
 const categoryUrl = "./js/category.json";
 const boardUrl = "./js/complaints.json";
+let boards = [];
+let staffs = [];
+let categories = [];
+
+loadDatas();
 
 // 현재 페이지 하이라이트 처리
 function highlightCurrentMenu() {
@@ -112,4 +117,11 @@ function highlightCurrentMenu() {
             addClass(menu, 'active');
         }
     });
+}
+
+// 데이터 불러오기
+async function loadDatas() {
+    boards = await getJson(boardUrl);
+    staffs = await getJson(staffUrl);
+    categories = await getJson(categoryUrl);
 }

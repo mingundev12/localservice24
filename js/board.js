@@ -2,9 +2,6 @@
 
 // 게시글 목록 불러오는 함수
 async function renderList() {
-    const boards = await getJson(boardUrl);
-    const staffs = await getJson(staffUrl);
-    const categories = await getJson(categoryUrl);
     const boardList = document.querySelector('#boardList');
 
     if(boards && staffs && categories) {
@@ -60,8 +57,8 @@ searchBtn.addEventListener('click', () =>{
 
         statusBtn.forEach(button => {
         //   console.log(button);
-          if(button.classList.contains("active") &&
-              (status === button.textContent || button.textContent === "전체")) condition2 = true;
+            if(button.classList.contains("active") &&
+                (status === button.textContent || button.textContent === "전체")) condition2 = true;
         });
         
         if(condition1 && condition2){
