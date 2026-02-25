@@ -93,6 +93,14 @@
 }
 
 /* 본문 */
+.tit a {
+    text-decoration: none;
+    color: inherit;
+}
+.tit a:hover {
+    text-decoration: underline;
+}
+
 .board-list td {
     padding: 12px;
     font-size: 14px;

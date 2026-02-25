@@ -21,7 +21,9 @@ async function renderList() {
         html += `
             <tr>
                 <td class="cate">${item.category}</td>
-                <td class="tit">${item.title}</td>
+                <td class="tit">
+                    <a href="./detail.html"> ${item.title}</a>
+                </td>
                 <td class="status">${item.status}</td>
                 <td class="manage">${item.manager}</td>
                 <td class="date">${item.date}</td>
