@@ -15,6 +15,14 @@ ul {
     list-style: none;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    /* table-layout: fixed; */
+    white-space: nowrap;
+}
+
 #wrap {
     max-width: 1200px;
     width: 100%;
@@ -150,10 +158,21 @@ ul {
     color: #fff;
 }
 
+.color_object_header {
+    background-color: #f8f9fa;
+}
+
 .color_text_777 {
     color: #777;
 }
 
 .color_text_ccc {
     color: #ccc;
+}
+
+/* 테이블 헤더 밑줄효과 */
+.border_object_header {
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
 }
