@@ -1,5 +1,5 @@
 
-function renderList() {
+function render() {
     
     if(!staffs || !categories) return;
 
