@@ -75,7 +75,10 @@ function removeClass(object, className) {
 }
 
 // header 와 footer 불러오기, 아이콘 교체
-async function initLayout() {
+async function init() {
+    // 데이터 불러오기
+    await loadDatas();
+
     // header 불러오기
     const header = document.querySelector('#header');
     await includeFile(header, './header.html');
@@ -92,17 +95,54 @@ async function initLayout() {
     const head = document.querySelector('head');
     const icon = `<link rel="icon" type="image/png" href="./img/logo_small.png">`;
     includeHTML(head, icon, true);
+
+    if(typeof renderList === 'function') {
+        renderList();
+    }
 }
 
-initLayout();
-const staffUrl = "./js/staff.json";
-const categoryUrl = "./js/category.json";
-const boardUrl = "./js/complaints.json";
-let boards = [];
-let staffs = [];
-let categories = [];
+let boards;
+let staffs;
+let categories;
+init();
 
-loadDatas();
+
+// 데이터 불러오기
+async function loadDatas() {
+    const boardUrl = "./js/complaints.json";
+    const staffUrl = "./js/staff.json";
+    const categoryUrl = "./js/category.json";
+
+    // 로컬 스토리지에 저장된 값 불러오기
+    const localBoards = localStorage.getItem("boards");
+    const localStaffs = localStorage.getItem("staffs");
+    const localCategories = localStorage.getItem("categories");
+
+    // 로컬 스토리지에 저장된 값이 없을 때
+    if(!localBoards) {
+        // 파일로부터 불러온 값을 변수에 저장
+        boards = await getJson(boardUrl);
+        staffs = await getJson(staffUrl);
+        categories = await getJson(categoryUrl);
+
+        // 로컬 스토리지에 변수값 저장
+        saveDatas();
+    } else {
+        // 로컬 스토리지에 값이 저장되어 있을 경우
+        // 불러온 값(문자열)을 json 으로 변환하여 저장
+        boards = JSON.parse(localBoards);
+        staffs = JSON.parse(localStaffs);
+        categories = JSON.parse(localCategories);
+    }
+}
+
+
+// 로컬 스토리지에 변수값 저장
+function saveDatas() {
+    localStorage.setItem("boards", JSON.stringify(boards));
+    localStorage.setItem("staffs", JSON.stringify(staffs));
+    localStorage.setItem("categories", JSON.stringify(categories));
+}
 
 // 현재 페이지 하이라이트 처리
 function highlightCurrentMenu() {
@@ -117,11 +157,4 @@ function highlightCurrentMenu() {
             addClass(menu, 'active');
         }
     });
-}
-
-// 데이터 불러오기
-async function loadDatas() {
-    boards = await getJson(boardUrl);
-    staffs = await getJson(staffUrl);
-    categories = await getJson(categoryUrl);
 }

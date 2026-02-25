@@ -1,39 +1,40 @@
 
 
 // 게시글 목록 불러오는 함수
-async function renderList() {
+function renderList() {
     const boardList = document.querySelector('#boardList');
 
     if(boards && staffs && categories) {
         const list = boards.map(board => {
-        const staff = staffs.find(staff => staff.id === board.staff_id);
-        const category = categories.find(category => category.id === board.category_id);
+            const staff = staffs.find(staff => staff.id === board.staff_id);
+            const category = categories.find(category => category.id === board.category_id);
 
-        return {
-            ...board,
-            manager : staff ? staff.name : '미배정',
-            category : category ? category.category_name : '기타'
-        };
-    });
+            return {
+                ...board,
+                manager : staff ? staff.name : '미배정',
+                category : category ? category.category_name : '기타'
+            };
+        });
+        // console.log(list);
 
-    let html = "";
-    list.forEach(item => {
-        html += `
-            <tr>
-                <td class="cate">${item.category}</td>
-                <td class="tit">${item.title}</td>
-                <td class="status">${item.status}</td>
-                <td class="manage">${item.manager}</td>
-                <td class="date">${item.date}</td>
-            </tr>
-        `;
-    });
+        let html = "";
+        list.forEach(item => {
+            html += `
+                <tr>
+                    <td class="cate">${item.category}</td>
+                    <td class="tit">${item.title}</td>
+                    <td class="status">${item.status}</td>
+                    <td class="manage">${item.manager}</td>
+                    <td class="date">${item.date}</td>
+                </tr>
+            `;
+        });
 
-    includeHTML(boardList, html);
+        console.log(html);
+
+        includeHTML(boardList, html);
     }
 }
-
-renderList();
 
 const statusBtn = document.querySelectorAll(".status-btn");
 const rows = document.querySelectorAll("#boardList tr");
