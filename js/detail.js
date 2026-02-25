@@ -1,0 +1,72 @@
+function render() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+    const articleBox = document.querySelector('.article-box');
+
+    const list = combineList();
+
+    const item = list.find(b => b.id === id);
+
+    let html = "";
+    if (item) {
+        html += `
+            <div class="title-area flexWrap">
+                    <div class="titleWrap-article">
+                        <p><h4>제목</h4>${item.title}</p>
+                    </div>
+                    <div class="category">
+                        <p><h4>분류</h4><span>${item.category}</span></p>
+                    </div>
+                    <div class="date">
+                        <p><h4>작성일자</h4><span>${item.date}</span></p>
+                    </div>
+                </div>
+                <div class="content-area flexWrap">
+                    <div class="contentWrap">
+                        <h4>내용</h4>
+                        <p>${item.content}</p>
+                    </div>
+                </div>
+                <div class="manage-area flexWrap">
+                    <div class="staffWrap">
+                        <h4>담당자</h4>
+                        <select id="staff_name">
+                            <option value="">---미배정---</option>`;
+        
+        staffs.forEach(staff => {
+            let isSelected = (item.staff_id === staff.id) ? 'selected' : '';
+            html +=         `<option value = "${staff.id}" ${isSelected}>${staff.name}</option>`;
+        });
+        html += `
+                        </select>
+                    </div>
+                    <div class="statusWrap">
+                        <h4>상태</h4>
+                        <ul class="statusList">
+                            ${['접수', '처리중', '완료'].map(status => `
+                            <li class="status ${item.status === status ? 'active' : ''}">
+                                <p>${status}</p>
+                            </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div class="submitBtnWrap">
+                        <ul class="submit">
+                            <li>
+                                <p><a href="" class="submitBtn">수정하기</a></p>
+                            </li>
+                            <li>
+                                <p><a href="./board.html" class="returnBtn">뒤로가기</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+    } else {
+        html += `<p>게시물이 존재하지 않습니다!</p>`;
+    }
+
+    console.log(articleBox);
+    includeHTML(articleBox, html);
+}

@@ -1,40 +1,27 @@
 
 
 // 게시글 목록 불러오는 함수
-function renderList() {
+function render() {
     const boardList = document.querySelector('#boardList');
 
-    if(boards && staffs && categories) {
-        const list = boards.map(board => {
-            const staff = staffs.find(staff => staff.id === board.staff_id);
-            const category = categories.find(category => category.id === board.category_id);
+    const list = combineList();
 
-            return {
-                ...board,
-                manager : staff ? staff.name : '미배정',
-                category : category ? category.category_name : '기타'
-            };
-        });
+    let html = "";
+    list.forEach(item => {
+        html += `
+            <tr>
+                <td class="cate">${item.category}</td>
+                <td class="tit">
+                    <a href="./detail.html?id=${item.id}"> ${item.title}</a>
+                </td>
+                <td class="status">${item.status}</td>
+                <td class="manage">${item.manager}</td>
+                <td class="date">${item.date}</td>
+            </tr>
+        `;
+    });
 
-        let html = "";
-        list.forEach(item => {
-            html += `
-                <tr>
-                    <td class="cate">${item.category}</td>
-                    <td class="tit">
-                        <a href="./detail.html"> ${item.title}</a>
-                    </td>
-                    <td class="status">${item.status}</td>
-                    <td class="manage">${item.manager}</td>
-                    <td class="date">${item.date}</td>
-                </tr>
-            `;
-        });
-
-      
-
-        includeHTML(boardList, html);
-    }
+    includeHTML(boardList, html);
 }
 
 const statusBtn = document.querySelectorAll(".status-btn");
