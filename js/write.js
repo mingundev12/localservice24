@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const newId = saveNewComplaint(title, category, content);
+        const newId = saveNewComplaint(title, parseInt(category), content);
         alert("등록이 완료되었습니다. 민원번호 : " + newId);
 
         // 👉 board.html로 이동
@@ -58,11 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function saveNewComplaint(title, category, content){
+function saveNewComplaint(title, categoryId, content){
     const boardLastId = boards[boards.length - 1].id;
     const complaint = {
         "id" : (boardLastId + 1),
-        "category_id" : category,
+        "category_id" : categoryId,
         "title" : title,
         "content" : content,
         "status" : "접수",

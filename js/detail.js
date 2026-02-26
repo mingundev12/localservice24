@@ -92,10 +92,12 @@ function addClickStatusEvent() {
 // 담당자 배정 이벤트 
 function addSetManagerEvent() {
     const manager = document.querySelector('#staff_name');
-    const status_ing = Array.from(statusBtns).find(b => b.textContent.trim() === '처리중');
+    const status_doing = Array.from(statusBtns).find(b => b.textContent.trim() === '처리중');
+    const status_todo = Array.from(statusBtns).find(b => b.textContent.trim() === '접수');
 
     manager.addEventListener('change', () => {
-        status_ing.click();
+        status_doing.click();
+        addClass(status_todo, "disabled");
     });
 }
 
