@@ -75,6 +75,22 @@ function render() {
         html += `<p>게시물이 존재하지 않습니다!</p>`;
     }
 
-    console.log(articleBox);
     includeHTML(articleBox, html);
+    addClickStatusEvent();
+}
+
+let statusBtns;
+
+function addClickStatusEvent() {
+    statusBtns = document.querySelectorAll('.status');
+
+    statusBtns.forEach(statusBtn => {
+        statusBtn.addEventListener('click', (e) => {
+            console.log(e.target);
+            // 세 개 중 하나를 클릭 했을 때 모든 버튼의 active를 제거
+            removeClass(statusBtns, 'active');
+            // 해당하는 버튼 하나만 활성화
+            addClass(e.target, 'active');
+        });
+    });
 }

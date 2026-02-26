@@ -55,3 +55,28 @@
     min-height: 200px;
     padding: 5px 5px 5px 0;
 }
+
+/* 상태표시 */
+
+.status {
+    min-width: 60px;
+    padding: 5px;
+    transition: all 0.2s;
+    background-color: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.status:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.status.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.status p {
+    pointer-events: none; /* p태그는 클릭 이벤트를 받지 않고 부모에게 통과시킴 */
+}
