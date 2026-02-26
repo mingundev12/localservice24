@@ -1,5 +1,6 @@
 
 function render() {
+    const tbody = document.querySelector('.staff-table-body');
     
     if(!staffs || !categories) return;
 
@@ -23,5 +24,5 @@ function render() {
         `;
     });
 
-    includeHTML('.staff-table-body', html);
+    includeHTML(tbody, html);
 }

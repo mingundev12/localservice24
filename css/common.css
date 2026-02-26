@@ -176,3 +176,8 @@ table {
     text-align: center;
     border-bottom: 2px solid #ddd;
 }
+
+/* 부제목 박스 */
+.content-title-wrapper {
+    padding: 0 10px;
+}

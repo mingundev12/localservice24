@@ -6,13 +6,14 @@ function render() {
     const list = combineList();
 
     const item = list.find(b => b.id === id);
+    const manager = staffs.find(s => s.id === item.staff_id);
 
     let html = "";
     if (item) {
         html += `
             <div class="title-area flexWrap">
                     <div class="titleWrap-article">
-                        <p><h4>제목</h4>${item.title}</p>
+                        <p><h4>제목</h4><span>${item.title}</span></p>
                     </div>
                     <div class="category">
                         <p><h4>분류</h4><span>${item.category}</span></p>
@@ -31,13 +32,18 @@ function render() {
                     <div class="staffWrap">
                         <h4>담당자</h4>
                         <select id="staff_name">
-                            <option value="">---미배정---</option>`;
-        
-        staffs.forEach(staff => {
-            let isSelected = (item.staff_id === staff.id) ? 'selected' : '';
-            html +=         `<option value = "${staff.id}" ${isSelected}>${staff.name}</option>`;
-        });
-        html += `
+                ${!manager ? "<option value=\"\">---미배정---</option>" : ""}
+                            ${staffs
+                // 카테고리 ID와 일치하는 담당자만 필터링
+                    .filter(staff => staff.category_id === item.category_id)
+                // 필터링된 담당자들로 <option> 태그 배열 생성
+                    .map(staff => {
+                        let isSelected = (item.staff_id === staff.id) ? 'selected' : '';
+                        return `<option value="${staff.id}" ${isSelected}>${staff.name}</option>`;
+                    })
+                // 배열을 하나의 문자열로 합침
+                    .join('')
+                            }
                         </select>
                     </div>
                     <div class="statusWrap">
@@ -50,6 +56,8 @@ function render() {
                             `).join('')}
                         </ul>
                     </div>
+                </div>
+                <div class="submit-area flexWrap">
                     <div class="submitBtnWrap">
                         <ul class="submit">
                             <li>

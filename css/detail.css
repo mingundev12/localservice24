@@ -1,0 +1,57 @@
+/* 내용 박스 */
+.article-box {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.flexWrap {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.flexWrap div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+.flexWrap div h4 {
+    padding-right: 5px;
+    border-right: 2px solid #ddd;
+    margin-right: 15px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.flexWrap div p {
+    text-align: center;
+}
+
+.flexWrap div ul {
+    display: flex;
+    gap: 5px;
+}
+
+.content-area {
+    padding: 10px 0;
+    min-height: 200px;
+}
+
+.content-area h4 {
+    align-items: center;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content-area p {
+    min-height: 200px;
+    padding: 5px 5px 5px 0;
+}
