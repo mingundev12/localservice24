@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const content = contentInput.value.trim();
 
         if (!title || !category || !content) {
-            alert("모든 항목을 입력해주세요!");
+            alert("모든 항목을 입력해주세요!!");
             return;
         }
 
