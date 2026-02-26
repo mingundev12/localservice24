@@ -26,3 +26,5 @@ function render() {
 
     includeHTML(tbody, html);
 }
+
+init();
