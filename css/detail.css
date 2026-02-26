@@ -1,0 +1,126 @@
+/* 내용 박스 */
+.article-box {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.flexWrap {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    padding: 10px 0;
+}
+
+.article-box .flexWrap {
+    border-bottom: 1px solid #eee;
+}
+
+.flexWrap div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+.flexWrap div h4 {
+    padding-right: 5px;
+    border-right: 2px solid #ddd;
+    margin-right: 15px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.flexWrap div p {
+    text-align: center;
+}
+
+.flexWrap div ul {
+    display: flex;
+    gap: 5px;
+}
+
+.content-area {
+    padding: 10px 0;
+    min-height: 200px;
+}
+
+.content-area h4 {
+    align-items: center;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content-area p {
+    min-height: 200px;
+    padding: 5px 5px 5px 0;
+}
+
+/* 담당자 표시 */
+#staff_name {
+    width: 100px;
+    height: 25px;
+    font-size: 16px;
+}
+
+/* 상태표시 */
+
+.status {
+    min-width: 60px;
+    padding: 5px;
+    transition: all 0.2s;
+    background-color: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.status:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.status.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.status p {
+    pointer-events: none; /* p태그는 클릭 이벤트를 받지 않고 부모에게 통과시킴 */
+}
+
+.status.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 수정, 뒤로가기 버튼 */
+.submit {
+    display: flex;
+    width:100%;
+    max-width: 1200px;
+    padding: 20px;
+    justify-content: end;
+    gap: 15px !important; 
+}
+
+.submit li p a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+}
+
+.editButton {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.returnButton {
+    background-color: #ddd;
+    color: #1f1f1f;
+}

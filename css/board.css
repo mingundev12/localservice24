@@ -6,11 +6,12 @@
 }
 
 /* 제목 */
-.board-title {
+.board_title {
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     padding: 10px;
+    white-space: nowrap;
 }
 
 /* 검색 영역 */
@@ -66,17 +67,22 @@
     background-color: #e0e0e0;
 }
 
+.board-filter{
+    white-space: nowrap;
+}
+
 /* 테이블 */
 .board-list table {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
     /* table-layout: fixed; */
+    white-space: nowrap;
 }
 
 /* 헤더 */
 .board-list thead {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa;    
 }
 
 .board-list th {
@@ -87,6 +93,14 @@
 }
 
 /* 본문 */
+.tit a {
+    text-decoration: none;
+    color: inherit;
+}
+.tit a:hover {
+    text-decoration: underline;
+}
+
 .board-list td {
     padding: 12px;
     font-size: 14px;
@@ -103,7 +117,7 @@ th.title, td.tit {
     text-align: center;
 }
 
-th.state, td.state {
+th.status, td.status {
     width: 15%;
     text-align: center;
 }
@@ -136,4 +150,25 @@ th.date,  td.date{
 /* 검색에 해당하지 않는 항목 감추기 */
 .hidden {
     display: none;
+}
+
+.status-btn {
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 마우스 올렸을 때 */
+.status-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* ⭐ 선택된 상태 */
+.status-btn.active {
+    background-color: #2c7be5;
+    color: #fff;
+    border-color: #2c7be5;
 }

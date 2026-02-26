@@ -55,5 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // 👉 board.html로 이동
         window.location.href = "board.html";
     });
-
 });
+
+
+init();
