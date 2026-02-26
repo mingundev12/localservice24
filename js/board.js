@@ -130,4 +130,5 @@ function filterRows() {
     });
 }
 
+init();
 checkBtn();
