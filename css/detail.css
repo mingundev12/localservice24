@@ -91,6 +91,12 @@
     pointer-events: none; /* p태그는 클릭 이벤트를 받지 않고 부모에게 통과시킴 */
 }
 
+.status.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* 수정, 뒤로가기 버튼 */
 .submit {
     display: flex;
