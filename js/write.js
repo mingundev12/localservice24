@@ -54,3 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
         contentCharCount.textContent = `0 / ${contentMax}`;
     });
 });
+
+
+init();

@@ -59,6 +59,13 @@
     padding: 5px 5px 5px 0;
 }
 
+/* 담당자 표시 */
+#staff_name {
+    width: 100px;
+    height: 25px;
+    font-size: 16px;
+}
+
 /* 상태표시 */
 
 .status {
@@ -82,4 +89,32 @@
 
 .status p {
     pointer-events: none; /* p태그는 클릭 이벤트를 받지 않고 부모에게 통과시킴 */
+}
+
+/* 수정, 뒤로가기 버튼 */
+.submit {
+    display: flex;
+    width:100%;
+    max-width: 1200px;
+    padding: 20px;
+    justify-content: end;
+    gap: 15px !important; 
+}
+
+.submit li p a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+}
+
+.editButton {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.returnButton {
+    background-color: #ddd;
+    color: #1f1f1f;
 }
