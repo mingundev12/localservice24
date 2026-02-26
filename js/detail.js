@@ -57,7 +57,8 @@ function render() {
                     <h4>상태</h4>
                     <ul class="statusList">
                         ${['접수', '처리중', '완료'].map(status => `
-                        <li class="status ${item.status === status ? 'active' : ''} ${item.status==='완료' ? 'disabled' : ''}">
+                        <li class="status ${item.status === status ? 'active' : ''} ${
+                            item.status==='완료' || (manager && status === '접수') ? 'disabled' : ''}">
                             <p>${status}</p>
                         </li>
                         `).join('')}
@@ -68,6 +69,7 @@ function render() {
 
     includeHTML(articleBox, html);
     addClickStatusEvent();
+    addSetManagerEvent();
 }
 
 // status 버튼 클릭 이벤트
@@ -85,6 +87,16 @@ function addClickStatusEvent() {
             });
         });
     }
+}
+
+// 담당자 배정 이벤트 
+function addSetManagerEvent() {
+    const manager = document.querySelector('#staff_name');
+    const status_ing = Array.from(statusBtns).find(b => b.textContent.trim() === '처리중');
+
+    manager.addEventListener('change', () => {
+        status_ing.click();
+    });
 }
 
 function editArticle(e) {
