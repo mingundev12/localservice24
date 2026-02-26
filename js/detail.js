@@ -57,7 +57,7 @@ function render() {
                     <h4>상태</h4>
                     <ul class="statusList">
                         ${['접수', '처리중', '완료'].map(status => `
-                        <li class="status ${item.status === status ? 'active' : ''}">
+                        <li class="status ${item.status === status ? 'active' : ''} ${item.status==='완료' ? 'disabled' : ''}">
                             <p>${status}</p>
                         </li>
                         `).join('')}
@@ -88,7 +88,7 @@ function addClickStatusEvent() {
 }
 
 function editArticle(e) {
-    if( e) {
+    if(e) {
         e.preventDefault();
     }
     let article = boards.find(b => b.id === id);
