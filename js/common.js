@@ -2,7 +2,6 @@
 let boards;
 let staffs;
 let categories;
-init();
 
 
 // 페이지를 불러올 때 실행하는 함수

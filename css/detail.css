@@ -11,8 +11,11 @@
     gap: 10px;
     margin-bottom: 10px;
     justify-content: flex-start;
-    border-bottom: 1px solid #eee;
     padding: 10px 0;
+}
+
+.article-box .flexWrap {
+    border-bottom: 1px solid #eee;
 }
 
 .flexWrap div {
