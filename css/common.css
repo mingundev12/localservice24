@@ -180,4 +180,5 @@ table {
 /* 부제목 박스 */
 .content-title-wrapper {
     padding: 0 10px;
+    margin-bottom: 30px;
 }

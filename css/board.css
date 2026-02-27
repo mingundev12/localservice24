@@ -19,6 +19,7 @@
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    padding: 0 10px;
 }
 
 .board-search-wrap select,
@@ -51,6 +52,7 @@
 /* 상태 필터 */
 .board-filter {
     margin-bottom: 20px;
+    padding: 0 10px;
 }
 
 .status-btn {
